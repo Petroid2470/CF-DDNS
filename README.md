@@ -1,4 +1,4 @@
-# CFDDNS
+# CF-DDNS
 
 Simple DDNS script using Cloudflare API to update a domain's IPv4 and IPv6 addresses.
 
