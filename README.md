@@ -14,5 +14,3 @@ Reccomended: Add the script to your cronjobs for automatic updating.
 
 How to get API token: [Cloudflare Documentation](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/)
 How to get Account and Zone ID: [Cloudflare Documentation](https://developers.cloudflare.com/fundamentals/account/find-account-and-zone-ids/)
-
-IPv6, .env and automatic Record IDs made by Petroid
