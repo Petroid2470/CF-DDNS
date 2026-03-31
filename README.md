@@ -4,11 +4,21 @@ Simple DDNS script using Cloudflare API to update a domain's IPv4 and IPv6 addre
 
 ## How to use
 
-Download the ddns script (ddns.sh), download .env.example and rename it to .env (in the same folder)
-Run ```chmod +x ddns.sh``` to make the script executable
-Run the script
+- Download the ddns script (ddns.sh)
 
-Reccomended: Add the script to your cronjobs for automatic updating.
+- Download .env.example and rename it to .env (in the same folder)
+
+- Edit the .env with the values that are required
+
+- Run ```chmod +x ddns.sh``` to make the script executable
+
+- Run the script
+
+---
+
+
+Recommended: Add the script to your cron jobs for automatic updating.
+
 
 ## Helpful information
 
