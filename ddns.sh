@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
+
 # Gets Cloudflare API stuff from .env
+cd "$(dirname "$0")" || exit 1
 source .env
 
 # Gets the IP with IPify, any other service will do if you want to change it
@@ -46,7 +48,7 @@ fi
   fi
  else
   echo "Couldn't get IPv4 address."
-  sed -i "s/^LAST_IPV6=.*/LAST_IPV6=\"$IPV6\"/" .env
+  sed -i "s/^LAST_IPV4=.*/LAST_IPV4=\"$IPV4\"/" .env
 fi
 
 
