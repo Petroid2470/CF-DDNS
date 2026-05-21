@@ -4,6 +4,8 @@ Simple DDNS script using Cloudflare API to update a domain's IPv4 and IPv6 addre
 
 ## How to use
 
+- Install `jq` and `curl`
+
 - Download the ddns script (ddns.sh)
 
 - Download .env.example and rename it to .env (in the same folder)
