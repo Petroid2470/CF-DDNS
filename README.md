@@ -16,6 +16,8 @@ Simple DDNS script using Cloudflare API to update a domain's IPv4 and IPv6 addre
 
 - Run the script
 
+- (Optional): Add `--ignore-ipv4` or `--ignore-ipv6` to bypass updating that record type.
+
 ---
 
 
