@@ -25,7 +25,7 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-if [[ "IGNORE_IPV4" == true && "IGNORE_IPV6" == true ]]; then
+if [[ "$IGNORE_IPV4" == true && "$IGNORE_IPV6" == true ]]; then
   echo "Both IP types are ignored, script will exit."
   exit 1
 fi
