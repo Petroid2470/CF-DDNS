@@ -1,9 +1,10 @@
 #!/bin/bash
 set -e
+
 # Gets Cloudflare API stuff from .env
 cd "$(dirname "$0")" || exit 1
 source .env
-
+# Argument stuff
 IGNORE_IPV4=false
 IGNORE_IPV6=false
 
@@ -24,6 +25,10 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+if [[ "IGNORE_IPV4" == true && "IGNORE_IPV6" == true ]]; then
+  echo "Both IP types are ignored, script will exit."
+  exit 1
+fi
 # Gets the IP with IPify, any other service will do if you want to change it
 IPV4=$(curl -s http://api.ipify.org || true)
 IPV6=$(curl -s http://api6.ipify.org || true)
@@ -38,7 +43,7 @@ curl -s "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records?type=$1
 }
 RECORD_ID_V4=$(get_record "A")
 RECORD_ID_V6=$(get_record "AAAA")
-
+# exit if there are no records
 if [[ -z "$RECORD_ID_V4" && -z "$RECORD_ID_V6" ]]; then
   echo -e "Couldn't find any Record IDs for $DOMAIN.\nCheck the DOMAIN entry in the .env or create an A and/or AAAA record in the Cloudflare Dashboard."
   exit 1
@@ -62,7 +67,7 @@ if [[ "$ignore" == false ]]; then
           echo "Can't update $ip_version!. Response: $RESPONSE"
         fi
         else
-    echo "$ip_version Record ID for $DOMAIN couldn't be found. Check the DOMAIN entry in the .env or create an $ip_type record in the Cloudflare Dashboard for that domain."
+    echo -e "$ip_version Record ID for $DOMAIN couldn't be found.\nCheck the DOMAIN entry in the .env or create an $ip_type record in the Cloudflare Dashboard for that domain."
       fi
     else 
      echo "Same $ip_version as before ($ip), no need to update."
